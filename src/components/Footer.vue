@@ -30,28 +30,28 @@
       </div>
       
       <!-- Enlaces rápidos -->
-      <div class="footer-links">
+      <!-- <div class="footer-links">
         <a href="#inicio" class="footer-link">Inicio</a>
         <span class="separator">•</span>
         <a href="#cuenta-regresiva" class="footer-link">Cuenta Regresiva</a>
         <span class="separator">•</span>
         <a href="#evento" class="footer-link">Evento</a>
-        <span class="separator">•</span>
+        <span class="separator">•</span> -->
         <!-- <a href="#galeria" class="footer-link">Galería</a> -->
-        <span class="separator">•</span>
+        <!-- <span class="separator">•</span>
         <a href="#rsvp" class="footer-link">RSVP</a>
-      </div>
+      </div> -->
       
       <!-- Casa de Hogwarts -->
-      <div class="house-badge">
+      <!-- <div class="house-badge">
         <div class="badge-content">
           <div class="house-crest">🦅</div>
           <div class="house-info">
             <div class="house-name">Ravenclaw</div>
             <div class="house-values">Ingenio • Sabiduría • Creatividad</div>
           </div>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
       
       <!-- Copyright y créditos -->
       <div class="footer-bottom">
