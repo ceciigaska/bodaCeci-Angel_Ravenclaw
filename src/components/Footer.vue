@@ -37,7 +37,7 @@
         <span class="separator">•</span>
         <a href="#evento" class="footer-link">Evento</a>
         <span class="separator">•</span>
-        <a href="#galeria" class="footer-link">Galería</a>
+        <!-- <a href="#galeria" class="footer-link">Galería</a> -->
         <span class="separator">•</span>
         <a href="#rsvp" class="footer-link">RSVP</a>
       </div>
