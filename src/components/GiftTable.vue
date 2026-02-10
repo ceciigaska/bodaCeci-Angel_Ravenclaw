@@ -23,7 +23,7 @@
               Si deseas hacer un regalo monetario, habrá un buzón especial durante la recepción
               para que deposites tu sobre con buenos deseos.
             </p>
-            <div class="gift-details">
+            <!-- <div class="gift-details">
               <div class="detail-item">
                 <span class="detail-icon">📮</span>
                 <span class="detail-text">Buzón disponible en la recepción</span>
@@ -32,7 +32,7 @@
                 <span class="detail-icon">🎁</span>
                 <span class="detail-text">Con tus mejores deseos</span>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         
@@ -50,11 +50,11 @@
             <div class="bank-details">
               <div class="bank-item">
                 <span class="bank-label">Banco:</span>
-                <span class="bank-value">Nombre del Banco</span>
+                <span class="bank-value">BBVA</span>
               </div>
               <div class="bank-item">
                 <span class="bank-label">Titular:</span>
-                <span class="bank-value">Ceci & Ángel</span>
+                <span class="bank-value">Lorena Cecilia Gasca Cortés</span>
               </div>
               <div class="bank-item">
                 <span class="bank-label">Cuenta:</span>
@@ -86,25 +86,25 @@
               Hemos creado mesas de regalos en las siguientes tiendas:
             </p>
             <div class="store-links">
-              <a href="#" target="_blank" class="store-button magic-button">
+              <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51839730" target="_blank" class="store-button magic-button">
                 <span class="store-icon">🛒</span>
                 Liverpool
               </a>
-              <a href="#" target="_blank" class="store-button magic-button">
+              <a href="https://www.amazon.com.mx/wedding/share/AngelyCeci" target="_blank" class="store-button magic-button">
                 <span class="store-icon">📦</span>
                 Amazon
               </a>
             </div>
-            <div class="event-codes">
+            <!-- <div class="event-codes">
               <div class="code-item">
                 <span class="code-label">Código de evento Liverpool:</span>
-                <span class="code-value">123456</span>
+                <span class="code-value">51839730</span>
               </div>
               <div class="code-item">
                 <span class="code-label">Código de evento Amazon:</span>
                 <span class="code-value">ABCD1234</span>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

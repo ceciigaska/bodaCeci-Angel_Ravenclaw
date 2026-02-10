@@ -17,7 +17,7 @@
         <li><a href="#cuenta-regresiva" @click="closeMenu">Cuenta Regresiva</a></li>
         <li><a href="#evento" @click="closeMenu">El Evento</a></li>
         <li><a href="#dress-code" @click="closeMenu">Dress Code</a></li>
-        <li><a href="#galeria" @click="closeMenu">Galería</a></li>
+        <!-- <li><a href="#galeria" @click="closeMenu">Galería</a></li> -->
         <li><a href="#regalos" @click="closeMenu">Regalos</a></li>
         <li><a href="#rsvp" @click="closeMenu">Confirmar</a></li>
       </ul>

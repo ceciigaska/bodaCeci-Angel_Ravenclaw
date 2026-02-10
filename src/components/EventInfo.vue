@@ -16,11 +16,11 @@
             </p>
             <p class="info-item">
               <span class="info-icon">🕐</span>
-              <span class="info-text">6:00 PM</span>
+              <span class="info-text">5:30 PM</span>
             </p>
             <p class="info-item">
               <span class="info-icon">📍</span>
-              <span class="info-text">Salón Gran Comedor<br>Calle Hogwarts 123, Ciudad Mágica</span>
+              <span class="info-text">Cristo de la Colina<br>Calz De Los Corceles S/N, Colina del Sur, Álvaro Obregón, 01430 Ciudad de México, CDMX</span>
             </p>
           </div>
           <button class="location-button magic-button" @click="openLocation('ceremony')">
@@ -76,7 +76,7 @@
             </p>
             <p class="info-item">
               <span class="info-icon">📸</span>
-              <span class="info-text">Fotógrafo profesional y photobooth</span>
+              <span class="info-text">Fotógrafo profesional</span>
             </p>
           </div>
         </div>
@@ -86,7 +86,7 @@
       <div class="additional-info">
         <p class="note">
           <span class="wand-icon">🪄</span>
-          Por favor confirma tu asistencia antes del 30 de Noviembre para que podamos preparar la mejor celebración mágica
+          Por favor confirma tu asistencia antes del 30 de Agosto para que podamos preparar la mejor celebración mágica
           <span class="wand-icon">🪄</span>
         </p>
       </div>

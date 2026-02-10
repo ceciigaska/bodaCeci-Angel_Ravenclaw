@@ -6,7 +6,7 @@
       <div class="rsvp-intro">
         <p class="intro-text">
           Nos encantaría contar con tu presencia en este día tan especial.<br>
-          Por favor confirma tu asistencia antes del <strong>30 de Noviembre, 2025</strong>
+          Por favor confirma tu asistencia antes del <strong>30 de Agosto, 2026</strong>
         </p>
       </div>
       
@@ -20,107 +20,18 @@
             Completa nuestro formulario de confirmación con tus datos y preferencias
           </p>
           <a 
-            href="https://docs.google.com/forms/d/e/TU_FORMULARIO_AQUI/viewform" 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdeQmSASpu9hYz3omzGRn-aZW4a38shi2SRPpZu1hSeAdFETw/viewform?usp=header" 
             target="_blank" 
             class="rsvp-button magic-button"
           >
             Confirmar Ahora
           </a>
-          
-          <!-- Nota: Puedes embeber el formulario directamente -->
-          <div class="embed-note">
-            <p>
-              💡 <strong>Nota:</strong> Reemplaza el enlace de arriba con tu formulario de Google Forms real.
-              También puedes embeber el formulario directamente aquí.
-            </p>
-          </div>
         </div>
         
-        <!-- Información adicional para los invitados -->
-        <div class="rsvp-info">
-          <h4 class="info-title">Información que Necesitamos</h4>
-          <div class="info-list">
-            <div class="info-item">
-              <span class="info-icon">👤</span>
-              <span class="info-text">Nombre completo de los asistentes</span>
-            </div>
-            <div class="info-item">
-              <span class="info-icon">📧</span>
-              <span class="info-text">Correo electrónico</span>
-            </div>
-            <div class="info-item">
-              <span class="info-icon">📱</span>
-              <span class="info-text">Teléfono de contacto</span>
-            </div>
-            <div class="info-item">
-              <span class="info-icon">🍽️</span>
-              <span class="info-text">Preferencias alimenticias o alergias</span>
-            </div>
-            <div class="info-item">
-              <span class="info-icon">🚗</span>
-              <span class="info-text">Si requieres transporte especial</span>
-            </div>
-            <div class="info-item">
-              <span class="info-icon">💬</span>
-              <span class="info-text">Mensaje especial o canción favorita</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Alternativa: Formulario directo embebido -->
-      <div class="embedded-form-section">
-        <h3 class="embedded-title">O completa el formulario aquí:</h3>
-        <div class="form-container">
-          <!-- Aquí va el iframe de Google Forms -->
-          <iframe 
-            src="https://docs.google.com/forms/d/e/TU_FORMULARIO_AQUI/viewform?embedded=true" 
-            width="100%" 
-            height="800" 
-            frameborder="0" 
-            marginheight="0" 
-            marginwidth="0"
-            class="google-form"
-          >
-            Cargando…
-          </iframe>
-        </div>
         
-        <div class="form-placeholder">
-          <div class="placeholder-icon">📋</div>
-          <p class="placeholder-text">
-            Para activar el formulario embebido:<br>
-            1. Crea tu formulario en Google Forms<br>
-            2. Haz clic en "Enviar" → Selecciona el icono "&lt;&gt;" (Insertar HTML)<br>
-            3. Copia el código iframe<br>
-            4. Reemplaza el atributo "src" del iframe de arriba con tu enlace
-          </p>
-        </div>
       </div>
       
-      <!-- Contacto alternativo -->
-      <div class="alternative-contact">
-        <div class="contact-box">
-          <h4 class="contact-title">¿Problemas con el formulario?</h4>
-          <p class="contact-text">
-            Contáctanos directamente:
-          </p>
-          <div class="contact-methods">
-            <a href="mailto:tuemail@ejemplo.com" class="contact-link">
-              <span class="contact-icon">📧</span>
-              tuemail@ejemplo.com
-            </a>
-            <a href="https://wa.me/521234567890" target="_blank" class="contact-link">
-              <span class="contact-icon">💬</span>
-              WhatsApp
-            </a>
-            <a href="tel:+521234567890" class="contact-link">
-              <span class="contact-icon">📱</span>
-              +52 123 456 7890
-            </a>
-          </div>
-        </div>
-      </div>
+      
       
       <!-- Mensaje final -->
       <div class="final-message">
@@ -168,14 +79,18 @@ export default {
 }
 
 .rsvp-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;             /* Cambiamos de grid a flex */
+  justify-content: center;    /* Centra el contenido horizontalmente */
+  align-items: center;        /* Centra el contenido verticalmente si fuera necesario */
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto 80px;
 }
 
 .rsvp-card {
+  /* ... tus otras propiedades ... */
+  max-width: 500px;           /* Añade un ancho máximo para que no se estire demasiado */
+  width: 100%;                /* Permite que sea responsivo */
   background: rgba(14, 26, 64, 0.6);
   backdrop-filter: blur(10px);
   border: 3px solid var(--ravenclaw-bronze);
@@ -420,7 +335,7 @@ export default {
 
 @media (max-width: 768px) {
   .rsvp-container {
-    grid-template-columns: 1fr;
+    flex-direction: column;   /* Alinea las tarjetas una debajo de otra en móviles */
     gap: 30px;
   }
   

@@ -15,7 +15,7 @@
       
       <div class="magical-message">
         <p v-if="timeRemaining.total > 0">
-          {{ daysUntilWedding }} días hasta que unamos nuestras varas mágicas
+          {{ daysUntilWedding }} días hasta que unamos nuestras varitas mágicas
         </p>
         <p v-else class="wedding-day-message">
           ¡Hoy es nuestro día mágico! ✨🎉

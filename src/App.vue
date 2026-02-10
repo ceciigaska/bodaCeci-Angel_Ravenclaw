@@ -19,7 +19,7 @@
     <DressCode />
     
     <!-- Galería -->
-    <Gallery />
+    <!-- <Gallery /> -->
     
     <!-- Mesa de Regalos -->
     <GiftTable />
@@ -58,7 +58,7 @@ export default {
   },
   data() {
     return {
-      weddingDate: new Date('2026-10-30T18:00:00') // Ajusta la fecha de tu boda
+      weddingDate: new Date('2026-10-30T17:30:00') // Ajusta la fecha de tu boda
     }
   }
 }
