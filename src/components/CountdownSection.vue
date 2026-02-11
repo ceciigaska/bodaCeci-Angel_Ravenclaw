@@ -2,17 +2,22 @@
   <section id="cuenta-regresiva" class="countdown-section section">
     <div class="container">
       <h2 class="section-title">La Magia Está Por Comenzar</h2>
-      
+
       <div class="countdown-container">
-        <div class="time-unit" v-for="(unit, index) in timeUnits" :key="index">
+        <div
+          class="time-unit"
+          v-for="(unit, index) in timeUnits"
+          :key="index"
+          :style="{ animationDelay: (index * 0.12) + 's' }"
+        >
           <div class="time-box">
+            <span class="sparkle">✦</span>
             <div class="time-value">{{ unit.value }}</div>
-            <div class="time-sparkle">✨</div>
           </div>
           <div class="time-label">{{ unit.label }}</div>
         </div>
       </div>
-      
+
       <div class="magical-message">
         <p v-if="timeRemaining.total > 0">
           {{ daysUntilWedding }} días hasta que unamos nuestras varitas mágicas
@@ -21,9 +26,8 @@
           ¡Hoy es nuestro día mágico! ✨🎉
         </p>
       </div>
-      
-      <!-- Relojes de arena decorativos -->
-      <div class="hourglass-decoration">⌛</div>
+
+      <div class="hourglass-decoration" aria-hidden="true">⌛</div>
     </div>
   </section>
 </template>
@@ -32,57 +36,41 @@
 export default {
   name: 'CountdownSection',
   props: {
-    weddingDate: {
-      type: Date,
-      required: true
-    }
+    weddingDate: { type: Date, required: true }
   },
   data() {
     return {
-      timeRemaining: {
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        total: 0
-      },
+      timeRemaining: { days: 0, hours: 0, minutes: 0, seconds: 0, total: 0 },
       interval: null
     }
   },
   computed: {
     timeUnits() {
       return [
-        { value: String(this.timeRemaining.days).padStart(2, '0'), label: 'Días' },
-        { value: String(this.timeRemaining.hours).padStart(2, '0'), label: 'Horas' },
+        { value: String(this.timeRemaining.days).padStart(2, '0'),    label: 'Días' },
+        { value: String(this.timeRemaining.hours).padStart(2, '0'),   label: 'Horas' },
         { value: String(this.timeRemaining.minutes).padStart(2, '0'), label: 'Minutos' },
         { value: String(this.timeRemaining.seconds).padStart(2, '0'), label: 'Segundos' }
       ]
     },
-    daysUntilWedding() {
-      return this.timeRemaining.days
-    }
+    daysUntilWedding() { return this.timeRemaining.days }
   },
   mounted() {
     this.updateCountdown()
     this.interval = setInterval(this.updateCountdown, 1000)
   },
   beforeUnmount() {
-    if (this.interval) {
-      clearInterval(this.interval)
-    }
+    if (this.interval) clearInterval(this.interval)
   },
   methods: {
     updateCountdown() {
-      const now = new Date().getTime()
-      const distance = this.weddingDate.getTime() - now
-      
+      const distance = this.weddingDate.getTime() - Date.now()
       this.timeRemaining.total = distance
-      
       if (distance > 0) {
-        this.timeRemaining.days = Math.floor(distance / (1000 * 60 * 60 * 24))
-        this.timeRemaining.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-        this.timeRemaining.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-        this.timeRemaining.seconds = Math.floor((distance % (1000 * 60)) / 1000)
+        this.timeRemaining.days    = Math.floor(distance / 86400000)
+        this.timeRemaining.hours   = Math.floor((distance % 86400000) / 3600000)
+        this.timeRemaining.minutes = Math.floor((distance % 3600000) / 60000)
+        this.timeRemaining.seconds = Math.floor((distance % 60000) / 1000)
       } else {
         this.timeRemaining = { days: 0, hours: 0, minutes: 0, seconds: 0, total: 0 }
       }
@@ -93,154 +81,103 @@ export default {
 
 <style scoped>
 .countdown-section {
-  background: linear-gradient(135deg, rgba(14, 26, 64, 0.8), rgba(26, 47, 95, 0.8));
-  position: relative;
-  overflow: hidden;
-}
-
-.countdown-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle at 20% 50%, rgba(148, 107, 45, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
-  pointer-events: none;
+  background: linear-gradient(160deg, rgba(14,26,64,0.5) 0%, rgba(10,14,31,0.3) 100%);
 }
 
 .countdown-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 30px;
-  max-width: 900px;
-  margin: 0 auto 50px;
-  padding: 0 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 820px;
+  margin: 0 auto 48px;
 }
 
+/* Caja individual */
 .time-unit {
   text-align: center;
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 0.7s ease-out both;
 }
-
-.time-unit:nth-child(1) { animation-delay: 0.1s; }
-.time-unit:nth-child(2) { animation-delay: 0.2s; }
-.time-unit:nth-child(3) { animation-delay: 0.3s; }
-.time-unit:nth-child(4) { animation-delay: 0.4s; }
 
 .time-box {
   position: relative;
-  background: linear-gradient(135deg, var(--ravenclaw-blue), var(--ravenclaw-blue-light));
-  border: 3px solid var(--ravenclaw-bronze);
-  padding: 30px 20px;
-  margin-bottom: 15px;
-  box-shadow: 0 10px 40px rgba(148, 107, 45, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  padding: 32px 16px 24px;
+  margin-bottom: 12px;
+  backdrop-filter: blur(6px);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .time-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 50px rgba(148, 107, 45, 0.5);
+  border-color: var(--hp-gold);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(201, 162, 77, 0.18);
+}
+
+.sparkle {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 0.85rem;
+  color: var(--hp-gold);
+  animation: sparkle 2.5s ease-in-out infinite;
 }
 
 .time-value {
-   
-  font-size: 4rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
   font-weight: 700;
-  color: var(--ravenclaw-bronze);
+  color: var(--hp-gold);
   line-height: 1;
-  text-shadow: 0 0 20px rgba(148, 107, 45, 0.5);
-}
-
-.time-sparkle {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  animation: sparkle 2s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(201, 162, 77, 0.4);
 }
 
 .time-label {
-   
-  font-size: 1.2rem;
-  color: var(--ravenclaw-silver);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 600;
+  color: var(--hp-silver);
 }
 
+/* Mensaje */
 .magical-message {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .magical-message p {
-  /* /*font-family: var(--font-body);*/ 
-  font-size: 1.5rem;
-  color: var(--star-white);
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--hp-silver);
   font-style: italic;
-  line-height: 1.8;
 }
 
 .wedding-day-message {
-  font-size: 2rem !important;
-  color: var(--ravenclaw-gold) !important;
-  font-weight: 600;
+  font-size: 1.8rem !important;
+  color: var(--hp-gold) !important;
   animation: sparkle 1.5s ease-in-out infinite;
 }
 
+/* Reloj de arena decorativo */
 .hourglass-decoration {
   position: absolute;
-  bottom: 30px;
+  bottom: 28px;
   left: 50%;
-  transform: translateX(-50%);
-  font-size: 3rem;
-  opacity: 0.3;
-  animation: rotate 4s linear infinite;
+  font-size: 2rem;
+  opacity: 0.2;
+  animation: flipHourglass 4s linear infinite;
+  transform-origin: center;
 }
 
-@keyframes rotate {
-  0%, 50% {
-    transform: translateX(-50%) rotate(0deg);
-  }
-  51%, 100% {
-    transform: translateX(-50%) rotate(180deg);
-  }
+@keyframes flipHourglass {
+  0%, 49%  { transform: translateX(-50%) rotate(0deg); }
+  50%, 100% { transform: translateX(-50%) rotate(180deg); }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .countdown-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  .time-value {
-    font-size: 3rem;
-  }
-  
-  .time-box {
-    padding: 20px 15px;
-  }
-  
-  .magical-message p {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .countdown-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-  
-  .time-value {
-    font-size: 2.5rem;
-  }
-  
-  .time-label {
-    font-size: 1rem;
+    gap: 16px;
   }
 }
 </style>
