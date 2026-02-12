@@ -5,21 +5,21 @@
     <div class="footer-content">
 
       <!-- Separador superior -->
-      <div class="footer-top-deco" aria-hidden="true">
+      <!-- <div class="footer-top-deco" aria-hidden="true">
         <span class="deco-star">✦</span>
         <span class="deco-line"></span>
         <span class="deco-eagle">🦅</span>
         <span class="deco-line"></span>
         <span class="deco-star">✦</span>
-      </div>
+      </div> -->
 
       <!-- Iniciales y nombre -->
       <div class="footer-main">
-        <div class="couple-initials">
+        <!-- <div class="couple-initials">
           <span class="initial">C</span>
           <span class="ampersand">&</span>
           <span class="initial">A</span>
-        </div>
+        </div> -->
 
         <h3 class="footer-title">Ceci & Ángel</h3>
         <p class="footer-date">30 · 10 · 2026</p>
@@ -27,7 +27,7 @@
 
         <div class="wedding-hashtag">
           <span class="hashtag-symbol">#</span>
-          <span class="hashtag-text">CeciYAngelForever</span>
+          <span class="hashtag-text">BodaCeci&Angel</span>
         </div>
       </div>
 

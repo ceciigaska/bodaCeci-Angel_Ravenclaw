@@ -167,7 +167,10 @@ export default { name: 'RsvpSection' }
 }
 
 @media (max-width: 600px) {
-  .rsvp-card { padding: 36px 24px; }
+  .rsvp-card {
+    width: 100%;
+    padding: 30px 20px; /* Reduce paddings internos */
+  }
   .closing-text { font-size: 1.2rem; }
 }
 </style>

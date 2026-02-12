@@ -30,22 +30,22 @@
           <div class="bank-details">
             <div class="bank-item">
               <span class="bank-label">Banco</span>
-              <span class="bank-value">BBVA</span>
+              <span class="bank-value">Mercado Pago W</span>
             </div>
             <div class="bank-item">
               <span class="bank-label">Titular</span>
               <span class="bank-value">Lorena Cecilia Gasca Cortés</span>
             </div>
-            <div class="bank-item">
+            <!-- <div class="bank-item">
               <span class="bank-label">Cuenta</span>
               <span class="bank-value copy-text" @click="copyAccount" title="Copiar">
                 1234567890 <span class="copy-icon">📋</span>
               </span>
-            </div>
+            </div> -->
             <div class="bank-item">
               <span class="bank-label">CLABE</span>
               <span class="bank-value copy-text" @click="copyClabe" title="Copiar">
-                012345678901234567 <span class="copy-icon">📋</span>
+                722969010532478496 <span class="copy-icon">📋</span>
               </span>
             </div>
           </div>

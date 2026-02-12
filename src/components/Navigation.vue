@@ -161,24 +161,21 @@ export default {
 
   .menu-toggle { display: flex; z-index: 1001; }
 
-  .nav-menu {
+.nav-menu {
     position: fixed;
     top: 0;
-    right: -100%;
-    width: 72%;
+    right: -100%; /* Escondido por defecto */
+    width: 80%; /* No satures toda la pantalla */
     height: 100vh;
-    background: rgba(10, 14, 31, 0.97);
-    backdrop-filter: blur(20px);
-    border-left: 1px solid rgba(201, 162, 77, 0.2);
+    background: var(--ravenclaw-blue);
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 36px;
-    transition: right 0.35s ease;
-    padding: 40px;
+    transition: 0.4s ease-in-out;
   }
 
-  .nav-menu.active { right: 0; }
+  .nav-menu.active {
+    right: 0; /* Entra suavemente */
+  }
 
   .nav-menu li a { font-size: 1rem; letter-spacing: 3px; }
 }

@@ -235,6 +235,13 @@ export default {
   .hero-section { padding: 100px 16px 80px; }
   .house-banner { flex-direction: column; text-align: center; }
   .house-text { text-align: center; }
-  .couple-names { letter-spacing: 3px; }
+  .couple-names {
+    font-size: 3rem !important; /* Reduce el tamaño en móviles */
+    line-height: 1.2;
+  }
+  .wedding-date {
+    font-size: 1.1rem;
+    letter-spacing: 3px; /* Reduce el espaciado para que no se corte */
+  }
 }
 </style>
