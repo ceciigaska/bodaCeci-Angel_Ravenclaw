@@ -1,5 +1,5 @@
 <template>
-  <nav class="navigation" :class="{ 'scrolled': isScrolled }">
+  <nav class="navigation" :class="{ scrolled: isScrolled }">
     <div class="nav-container">
       <div class="nav-logo">
         <span class="initials">C & A</span>
@@ -12,13 +12,15 @@
         <span :class="{ open: menuOpen }"></span>
       </button>
 
-      <ul class="nav-menu" :class="{ 'active': menuOpen }">
-        <li><a href="#inicio"            @click="closeMenu">Inicio</a></li>
-        <li><a href="#cuenta-regresiva"  @click="closeMenu">Cuenta Regresiva</a></li>
-        <li><a href="#evento"            @click="closeMenu">El Evento</a></li>
-        <li><a href="#dress-code"        @click="closeMenu">Dress Code</a></li>
-        <li><a href="#regalos"           @click="closeMenu">Regalos</a></li>
-        <li><a href="#rsvp"              @click="closeMenu">Confirmar</a></li>
+      <ul class="nav-menu" :class="{ active: menuOpen }">
+        <li><a href="#inicio" @click="closeMenu">Inicio</a></li>
+        <li>
+          <a href="#cuenta-regresiva" @click="closeMenu">Cuenta Regresiva</a>
+        </li>
+        <li><a href="#evento" @click="closeMenu">El Evento</a></li>
+        <li><a href="#dress-code" @click="closeMenu">Dress Code</a></li>
+        <li><a href="#regalos" @click="closeMenu">Regalos</a></li>
+        <li><a href="#rsvp" @click="closeMenu">Confirmar</a></li>
       </ul>
     </div>
   </nav>
@@ -26,25 +28,31 @@
 
 <script>
 export default {
-  name: 'Navigation',
+  name: "Navigation",
   data() {
     return {
       isScrolled: false,
-      menuOpen: false
-    }
+      menuOpen: false,
+    };
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener("scroll", this.handleScroll);
   },
   beforeUnmount() {
-    window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
-    handleScroll() { this.isScrolled = window.scrollY > 80 },
-    toggleMenu()   { this.menuOpen = !this.menuOpen },
-    closeMenu()    { this.menuOpen = false }
-  }
-}
+    handleScroll() {
+      this.isScrolled = window.scrollY > 80;
+    },
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
+    closeMenu() {
+      this.menuOpen = false;
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -55,7 +63,9 @@ export default {
   width: 100%;
   z-index: 1000;
   padding: 6px 0;
-  transition: background 0.4s ease, padding 0.3s ease;
+  transition:
+    background 0.4s ease,
+    padding 0.3s ease;
   background: transparent;
 }
 
@@ -114,7 +124,7 @@ export default {
 }
 
 .nav-menu li a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -5px;
@@ -152,31 +162,55 @@ export default {
   transform-origin: center;
 }
 
-.menu-toggle span.open:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.menu-toggle span.open:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.menu-toggle span.open:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu-toggle span.open:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle span.open:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.menu-toggle span.open:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 @media (max-width: 768px) {
-  .nav-container { padding: 14px 20px; }
+  .nav-container {
+    padding: 14px 20px;
+  }
 
-  .menu-toggle { display: flex; z-index: 1001; }
-
-.nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%; /* Escondido por defecto */
-    width: 80%; /* No satures toda la pantalla */
-    height: 100vh;
-    background: var(--ravenclaw-blue);
+  .menu-toggle {
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    transition: 0.4s ease-in-out;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--hp-gold);
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 15, 25, 0.95);
+    width: 220px;
+    padding: 20px;
+    gap: 20px;
+    transform: translateX(100%);
+    transition: 0.3s ease;
   }
 
   .nav-menu.active {
-    right: 0; /* Entra suavemente */
+    transform: translateX(0);
   }
 
-  .nav-menu li a { font-size: 1rem; letter-spacing: 3px; }
+  .nav-menu li a {
+    font-size: 1rem;
+    letter-spacing: 3px;
+  }
 }
 </style>
