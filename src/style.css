@@ -30,6 +30,7 @@ html, body {
   overflow-x: hidden;
 }
 
+
 /* YA NO FORZAMOS TRANSPARENCIAS */
 section,
 nav,
@@ -84,5 +85,56 @@ button:hover {
 
   p {
     font-size: 1.1rem;
+  }
+}
+
+/* INTRO MAPA */
+
+.intro-map {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.map-bg {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  z-index: 1;
+}
+
+.intro-overlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 120px;
+  text-align: center;
+  color: #3b2a1a;
+}
+
+.intro-overlay h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+}
+
+/* Añade esto al final de style.css o en el style de App.vue */
+.revealApp {
+  animation: fadeInApp 2s ease-in-out;
+}
+
+@keyframes fadeInApp {
+  from { 
+    opacity: 0;
+    filter: sepia(0.5) brightness(0.5); /* Inicia con tono de mapa */
+  }
+  to { 
+    opacity: 1;
+    filter: sepia(0) brightness(1); /* Termina en los colores de la boda */
   }
 }
