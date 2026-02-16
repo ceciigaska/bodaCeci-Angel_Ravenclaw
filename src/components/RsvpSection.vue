@@ -10,7 +10,17 @@
       </p>
 
       <div class="rsvp-card fade-in">
-        <div class="card-icon">✉️</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Sobre estilo Mágico HP -->
+            <rect x="4" y="9" width="24" height="14" rx="0.5"/>
+            <path d="M4 9l12 7 12-7"/>
+            <!-- Sello Hogwarts simplificado -->
+            <circle cx="16" cy="16" r="3.5"/>
+            <path d="M16 13v1M16 19v1M13 16h1M19 16h1" stroke-width="1"/>
+            <path d="M14 14l.5.5M17.5 17.5l.5.5M14 18l.5-.5M17.5 14.5l.5-.5" stroke-width="0.8"/>
+          </svg>
+        </div>
         <h3 class="card-title">Formulario de Confirmación</h3>
         <div class="card-divider"></div>
         <p class="card-description">
@@ -93,9 +103,17 @@ export default { name: 'RsvpSection' }
 }
 
 .card-icon {
-  font-size: 2.8rem;
-  margin-bottom: 16px;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  color: var(--hp-gold);
   animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(201,162,77,0.3));
+}
+
+.card-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .card-title {

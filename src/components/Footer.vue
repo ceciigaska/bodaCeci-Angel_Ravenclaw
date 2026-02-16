@@ -39,9 +39,23 @@
 
       <!-- Separador inferior -->
       <div class="footer-bottom-deco" aria-hidden="true">
-        <span>🪄</span>
+        <span class="wand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+            <line x1="5" y1="21" x2="18" y2="8" stroke-width="2"/>
+            <circle cx="19" cy="7" r="2"/>
+            <line x1="6" y1="20" x2="7.5" y2="18.5" stroke-width="1.5"/>
+            <path d="M21 3l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5-1.5-.5 1.5-.5z" fill="currentColor" stroke="none" opacity="0.7"/>
+          </svg>
+        </span>
         <span class="deco-sparkles">✨ ✨ ✨</span>
-        <span>🪄</span>
+        <span class="wand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+            <line x1="5" y1="21" x2="18" y2="8" stroke-width="2"/>
+            <circle cx="19" cy="7" r="2"/>
+            <line x1="6" y1="20" x2="7.5" y2="18.5" stroke-width="1.5"/>
+            <path d="M21 3l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5-1.5-.5 1.5-.5z" fill="currentColor" stroke="none" opacity="0.7"/>
+          </svg>
+        </span>
       </div>
 
     </div>
@@ -103,6 +117,12 @@ export default { name: 'Footer' }
 .deco-star    { animation: sparkle 2.5s ease-in-out infinite; font-size: 0.9rem; }
 .deco-eagle   { font-size: 1.6rem; animation: float 4s ease-in-out infinite; }
 .deco-sparkles { letter-spacing: 4px; animation: sparkle 2s ease-in-out infinite; }
+
+.footer-bottom-deco .wand-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--hp-gold);
+}
 
 /* Iniciales */
 .footer-main { margin: 0 auto 40px; }

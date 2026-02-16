@@ -1,12 +1,12 @@
 <script setup>
 import mapBg from '../assets/hogwarts-lineart.png'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const emit = defineEmits(['close'])
 
 // Tres líneas, mismo tamaño, se escriben en secuencia
 const lines = [
-  'Juro Solemnemente Que Mis Intenciones Son Buenas',
+  'Juro Solemnemente Que Mis Intenciones No Son Buenas',
   '— ✦ —',
   'Ceci & Ángel',
 ]
@@ -46,23 +46,48 @@ function typeLine(lineIdx, delay = 0) {
 }
 
 onMounted(async () => {
-  setTimeout(() => { mapIn.value = true }, 300)
+  // Bloquear scroll mientras el intro está activo
+  document.body.style.overflow = 'hidden'
 
-  await typeLine(0, 1200)          // "Juro solemnemente..."
-  await new Promise(r => setTimeout(r, 300))
-  await typeLine(1)                 // "— ✦ —"
-  await new Promise(r => setTimeout(r, 280))
-  await typeLine(2)                 // "Ceci & Ángel"
+  const img = new Image()
+  img.src = mapBg
+  img.onload = () => {
+    // Solo cuando la imagen carga, activamos el mapa y las letras
+    mapIn.value = true
+    startTypingSequence()
+  }
+//   setTimeout(() => { mapIn.value = true }, 300)
 
-  writeDone.value = true
-  setTimeout(() => { showHint.value = true }, 700)
+//   await typeLine(0, 1200)          // "Juro solemnemente..."
+//   await new Promise(r => setTimeout(r, 300))
+//   await typeLine(1)                 // "— ✦ —"
+//   await new Promise(r => setTimeout(r, 280))
+//   await typeLine(2)                 // "Ceci & Ángel"
+
+//   writeDone.value = true
+//   setTimeout(() => { showHint.value = true }, 700)
 })
+
+// Seguridad: restaurar scroll si el componente se desmonta de otra forma
+onUnmounted(() => {
+  document.body.style.overflow = ''
+})
+
+async function startTypingSequence() {
+  await typeLine(0, 800)
+  await typeLine(1, 300)
+  await typeLine(2, 280)
+  writeDone.value = true
+  showHint.value = true
+}
 
 function handleClick() {
   if (!writeDone.value) return
   lumos.value = true
   setTimeout(() => {
     closing.value = true
+    // Restaurar scroll al cerrar el intro
+    document.body.style.overflow = ''
     setTimeout(() => emit('close'), 1400)
   }, 850)
 }
@@ -295,33 +320,30 @@ function handleClick() {
 }
 
 /* ══════════════════════════════════════════
-   CARTA DEL MAPA
+   CARTA DEL MAPA — ocupa toda la pantalla
 ══════════════════════════════════════════ */
 .im-card {
-  position: relative;
-  width: min(90vw, 48vh);
-  aspect-ratio: 2 / 3;
-  border-radius: 2px;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
   overflow: hidden;
   opacity: 0;
-  transform: scale(.93) translateY(22px);
+  transform: scale(1.03);
   transition:
     opacity   1.4s cubic-bezier(.22,1,.36,1),
     transform 1.4s cubic-bezier(.22,1,.36,1),
     box-shadow .5s ease;
-  box-shadow: 
-    0 0 20px rgba(0,0,0,0.5),
-    inset 0 0 100px rgba(139, 69, 19, 0.15); 
-  border: 1px solid rgba(180, 150, 80, 0.3);
   z-index: 2;
-  background-color: #e4d1b9; /* Color base de pergamino */
+  background-color: #e4d1b9;
   background-image: 
-    url("https://www.transparenttextures.com/patterns/paper-fibers.png"); /* Textura sutil */
-  filter: sepia(0.2) contrast(1.1); /* Envejecido digital */
+    url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  filter: sepia(0.2) contrast(1.1);
 }
 .im-card.card-in {
   opacity: 1;
-  transform: scale(1) translateY(0);
+  transform: scale(1);
 }
 .im-card.card-lumos {
   box-shadow:
@@ -336,7 +358,7 @@ function handleClick() {
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
+  background-position: center 60%;
   background-repeat: no-repeat;
 }
 
@@ -355,7 +377,7 @@ function handleClick() {
 ══════════════════════════════════════════ */
 .im-oath {
   position: absolute;
-  top: 57%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 88%;
@@ -381,7 +403,7 @@ function handleClick() {
 
 /* Tamaño único para todas las líneas */
 .oath-text {
-  font-size: clamp(.72rem, 2.2vw, 1.05rem);
+  font-size: clamp(1rem, 2.8vw, 1.8rem);
   color: #3b2a1a;
   text-shadow:
     0 1px 5px rgba(230,190,100,.65),
@@ -398,14 +420,13 @@ function handleClick() {
   font-family: 'IM Fell English', serif;
   letter-spacing: .3em;
   color: rgba(40,18,4,.55);
-  font-size: clamp(.65rem, 1.8vw, .9rem);
+  font-size: clamp(.9rem, 2.2vw, 1.4rem);
 }
 .t-names {
   font-family: 'Cinzel Decorative', serif;
   font-weight: 700;
   letter-spacing: .2em;
-  /* Mismo tamaño base pero un poco más prominente */
-  font-size: clamp(.85rem, 2.6vw, 1.25rem);
+  font-size: clamp(1.2rem, 3.5vw, 2.2rem);
   color: #140802;
   text-shadow:
     0 0 16px rgba(175,110,22,.55),
@@ -471,7 +492,7 @@ function handleClick() {
   transform: translateX(-50%);
   font-family: 'IM Fell English', serif;
   font-style: italic;
-  font-size: clamp(.52rem, 1.5vw, .75rem);
+  font-size: clamp(.75rem, 1.8vw, 1.1rem);
   color: rgba(38,16,3,.48);
   letter-spacing: .16em;
   white-space: nowrap;

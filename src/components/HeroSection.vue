@@ -12,20 +12,27 @@
         Ceci <span class="ampersand">&amp;</span> Ángel
       </h1>
 
-      <div class="house-banner">
+      <!-- <div class="house-banner">
         <span class="eagle">🦅</span>
         <div class="house-text">
           <div class="house-name">Ravenclaw</div>
           <div class="house-motto">"Wit Beyond Measure is Man's Greatest Treasure"</div>
         </div>
-      </div>
+      </div> -->
 
       <div class="wedding-date">30 · Octubre · 2026</div>
 
       <div class="divider">
         <span>✦</span>
         <span class="line"></span>
-        <span>🪄</span>
+        <span class="wand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+            <line x1="5" y1="21" x2="18" y2="8" stroke-width="2"/>
+            <circle cx="19" cy="7" r="2"/>
+            <line x1="6" y1="20" x2="7.5" y2="18.5" stroke-width="1.5"/>
+            <path d="M21 3l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5-1.5-.5 1.5-.5z" fill="currentColor" stroke="none" opacity="0.7"/>
+          </svg>
+        </span>
         <span class="line"></span>
         <span>✦</span>
       </div>
@@ -191,6 +198,12 @@ export default {
   width: 60px;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--hp-gold), transparent);
+}
+
+.divider .wand-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--hp-gold);
 }
 
 /* Descripción */
