@@ -6,9 +6,9 @@ const emit = defineEmits(['close'])
 
 // Tres líneas, mismo tamaño, se escriben en secuencia
 const lines = [
-  'Juro Solemnemente Que Mis Intenciones No Son Buenas',
+  'Juro Solemnemente Que Mis Intenciones Son Buenas',
   '— ✦ —',
-  'Ceci & Ángel',
+  'Cecilia & Ángel',
 ]
 
 const displayed  = ref(['', '', ''])

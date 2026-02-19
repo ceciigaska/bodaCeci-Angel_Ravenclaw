@@ -19,13 +19,16 @@
       </div>
 
       <div class="magical-message">
-        <p v-if="timeRemaining.total > 0">
-          {{ daysUntilWedding }} días hasta que unamos nuestras varitas mágicas
-        </p>
-        <p v-else class="wedding-day-message">
-          ¡Hoy es nuestro día mágico! ✨🎉
-        </p>
-      </div>
+  <p v-if="timeRemaining.total > 0" class="vow-text">
+    <span class="sparkle-vow">✦</span>
+    {{ daysUntilWedding }} días para sellar nuestro 
+    <span class="unbreakable-vow">Juramento Inquebrantable</span>
+    <span class="sparkle-vow">✦</span>
+  </p>
+  <p v-else class="wedding-day-message">
+    ¡El Juramento se ha sellado! ✨🎉
+  </p>
+</div>  
 
       <div class="hourglass-decoration" aria-hidden="true">⌛</div>
     </div>
@@ -179,5 +182,54 @@ export default {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+}
+
+/* Estilo general del contenedor de la frase */
+.vow-text {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--hp-silver);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* El texto dorado con "resplandor de juramento" */
+.unbreakable-vow {
+  color: var(--hp-gold);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  /* Brillo constante */
+  text-shadow: 0 0 10px rgba(201, 162, 77, 0.5), 0 0 20px rgba(201, 162, 77, 0.2);
+  /* Animación de latido mágico */
+  animation: vow-glow 4s infinite alternate ease-in-out;
+}
+
+/* Destellos que rodean el texto */
+.sparkle-vow {
+  color: var(--hp-gold);
+  font-size: 0.9rem;
+  animation: sparkle-float 2.5s infinite alternate ease-in-out;
+}
+
+/* Animación: El texto brilla como hilos de oro */
+@keyframes vow-glow {
+  0% {
+    text-shadow: 0 0 5px rgba(201, 162, 77, 0.4);
+    filter: brightness(1);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(201, 162, 77, 0.9), 0 0 30px rgba(201, 162, 77, 0.4);
+    filter: brightness(1.2);
+  }
+}
+
+/* Animación: Las estrellas flotan y parpadean */
+@keyframes sparkle-float {
+  0% { transform: translateY(0) scale(0.8); opacity: 0.4; }
+  100% { transform: translateY(-5px) scale(1.2); opacity: 1; }
 }
 </style>

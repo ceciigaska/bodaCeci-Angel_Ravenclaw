@@ -21,20 +21,20 @@
           <span class="initial">A</span>
         </div> -->
 
-        <h3 class="footer-title">Ceci & Ángel</h3>
+        <h3 class="footer-title">Cecilia & Ángel</h3>
         <p class="footer-date">30 · 10 · 2026</p>
         <p class="footer-tagline">Donde el amor y la magia se encuentran</p>
 
         <div class="wedding-hashtag">
           <span class="hashtag-symbol">#</span>
-          <span class="hashtag-text">BodaCeci&Angel</span>
+          <span class="hashtag-text">BodaCecilia&Angel</span>
         </div>
       </div>
 
       <!-- Créditos -->
       <div class="footer-bottom">
         <p class="copyright">Hecho con 💙 y magia</p>
-        <p class="credits">© 2026 Ceci & Ángel · Todos los derechos reservados</p>
+        <p class="credits">© 2026 Cecilia & Ángel · Todos los derechos reservados</p>
       </div>
 
       <!-- Separador inferior -->
