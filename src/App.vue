@@ -1,26 +1,22 @@
 <template>
+  <IntroMap v-if="showIntro" @close="handleCloseIntro" />
 
-  <!-- Intro tipo Mapa del Merodeador -->
-  <IntroMap
-    v-if="showIntro"
-    @close="handleCloseIntro"
-  />
+  <transition name="fade-invitation">
+    <div v-if="!showIntro" id="app">
+      <div class="stars-background"></div>
 
-  <div id="app">
-    <!-- Fondo estrellado fijo -->
-    <div class="stars-background"></div>
-
-    <div class="app-background">
-      <Navigation />
-      <HeroSection />
-      <CountdownSection :weddingDate="weddingDate" />
-      <EventInfo />
-      <DressCode />
-      <GiftTable />
-      <RsvpSection />
-      <Footer />
+      <div class="app-background">
+        <Navigation />
+        <HeroSection id="inicio" />
+        <CountdownSection id="cuenta-regresiva" :weddingDate="weddingDate" />
+        <EventInfo id="evento" />
+        <DressCode id="dress-code" />
+        <GiftTable id="regalos" />
+        <RsvpSection id="rsvp" />
+        <Footer />
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -55,8 +51,35 @@ export default {
   },
   methods: {
     handleCloseIntro() {
-      this.showIntro = false
+      this.showIntro = false;
+      localStorage.setItem('introSeen', 'true');
+      
+      this.$nextTick(() => {
+        window.scrollTo(0, 0);
+      });
+    },
+  },
+  mounted() {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
     }
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname);
+    }
+    window.scrollTo(0, 0);
   }
 }
 </script>
+
+<style>
+/* TRANSICIÓN MÁGICA DE ENTRADA */
+.fade-invitation-enter-active {
+  transition: opacity 2s ease-in-out;
+}
+.fade-invitation-enter-from {
+  opacity: 0;
+}
+.fade-invitation-enter-to {
+  opacity: 1;
+}
+</style>

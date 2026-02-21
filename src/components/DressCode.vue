@@ -1,479 +1,243 @@
 <template>
   <section id="dress-code" class="dress-code-section section">
     <div class="container">
-      <h2 class="section-title">Código de Vestimenta</h2>
+      <h2 class="section-title">Protocolo de Vestimenta</h2>
 
-      <!-- Paleta de colores -->
-      <div class="color-palette">
-        <p class="palette-title">Paleta sugerida para la noche</p>
-        <div class="palette-grid">
-          <div class="swatch" style="background: #0b0b0f" title="Negro"></div>
-          <div class="swatch" style="background: #4b0f1a" title="Vino"></div>
-          <div
-            class="swatch"
-            style="background: #0f3d2e"
-            title="Verde esmeralda"
-          ></div>
-          <div
-            class="swatch"
-            style="background: #0e1a2b"
-            title="Azul profundo"
-          ></div>
-          <div class="swatch" style="background: #c9a24d" title="Dorado"></div>
-          <div
-            class="swatch"
-            style="background: #8b8e98"
-            title="Plateado"
-          ></div>
-        </div>
-        <p class="palette-caption">
-          Negro · Vino · Verde Esmeralda · Azul Profundo · Dorado · Plateado
-        </p>
-      </div>
-
-      <p class="intro-text">
-        Nuestro evento será por la noche en un salón cerrado, inspirado en la
-        elegancia y magia del mundo de Harry Potter.<br />
-        Viste <strong>formal y elegante</strong> con un sutil toque mágico para
-        esta celebración especial.
+      <p class="dress-intro fade-in">
+        Deseamos que nuestra boda sea una noche llena de elegancia y magia. 
+        <br>El código de vestimenta es <strong>Formal de Noche</strong>.
       </p>
 
-      <!-- Tarjetas -->
-      <div class="dress-grid">
-        <div class="dress-card fade-in" style="animation-delay: 0.1s">
-          <div class="dress-icon">
-            <svg
-              viewBox="0 0 48 48"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <!-- Vestido largo -->
-              <path d="M18 4 Q24 8 30 4" />
-              <path d="M18 4 Q14 10 12 16l-6 28h36l-6-28Q34 10 30 4" />
-              <path d="M15 18 Q24 22 33 18" stroke-width="0.9" opacity="0.5" />
-              <!-- Cintura -->
-              <path d="M16 20 Q24 24 32 20" stroke-width="0.8" opacity="0.4" />
-              <!-- Escote -->
-              <path d="M18 4 Q24 10 30 4" stroke-width="0.9" opacity="0.5" />
-              <!-- Detalle falda -->
-              <path d="M10 36 Q24 40 38 36" stroke-width="0.7" opacity="0.3" />
-            </svg>
+      <div class="color-palette fade-in">
+        <h3 class="palette-subtitle">Paleta Inspirada en las Casas</h3>
+        <div class="palette-grid">
+          <div class="swatch-wrapper" v-for="color in paleta" :key="color.name">
+            <div class="swatch" :style="{ background: color.hex }">
+              <div class="swatch-glint"></div>
+            </div>
+            <span class="swatch-label">{{ color.name }}</span>
           </div>
-          <h3 class="dress-title">Para Ellas</h3>
-          <div class="dress-divider"></div>
-          <p class="dress-description">
-            Vestidos midi o largos, telas con caída elegante.<br /><br />
-            <strong>Sugeridos:</strong> negro, vino, verde esmeralda, azul
-            profundo, dorado, plateado, ciruela.<br /><br />
-            <strong>Evitar:</strong> blanco, ivory, beige muy claro y colores
-            neón.<br /><br />
-            Tacón cómodo, block heel o flats elegantes.
-          </p>
-<a href="https://www.pinterest.com.mx/search/pins/?q=Formal%20night%20gala%20dresses%20emerald%20blue%20plum%20velvet" 
-   target="_blank" 
-   class="magic-link">
-   Inspiración para ellas ↗
-</a>
-        </div>
-
-        <div class="dress-card fade-in" style="animation-delay: 0.22s">
-          <div class="dress-icon">
-            <svg
-              viewBox="0 0 48 48"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <!-- Sombrero de copa -->
-              <rect x="16" y="10" width="16" height="22" rx="1" />
-              <!-- Ala -->
-              <path d="M8 32 Q16 36 32 36 Q40 36 40 32" />
-              <line x1="8" y1="32" x2="40" y2="32" />
-              <!-- Cinta decorativa -->
-              <line
-                x1="16"
-                y1="26"
-                x2="32"
-                y2="26"
-                stroke-width="2.5"
-                opacity="0.4"
-              />
-              <!-- Detalle superior -->
-              <line
-                x1="16"
-                y1="10"
-                x2="32"
-                y2="10"
-                stroke-width="0.8"
-                opacity="0.5"
-              />
-              <!-- Destello mágico -->
-              <path
-                d="M36 8l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5-1.5-.5 1.5-.5z"
-                fill="currentColor"
-                stroke="none"
-                opacity="0.6"
-              />
-            </svg>
-          </div>
-          <h3 class="dress-title">Para Ellos</h3>
-          <div class="dress-divider"></div>
-          <p class="dress-description">
-            Traje formal de dos o tres piezas.<br /><br />
-            <strong>Sugeridos:</strong> negro, gris oscuro, azul marino, verde oscuro, vino.<br><br>
-            Camisa blanca, negra o tonos oscuros.<br>
-            Corbata o moño recomendado.<br>
-            Zapatos de vestir negros o café oscuro.
-          </p>
-          <a href="https://www.pinterest.com.mx/search/pins/?q=Men%20formal%20evening%20suit%20dark%20green%20navy%20burgundy%20velvet" 
-   target="_blank" 
-   class="magic-link">
-   Inspiración para ellos ↗
-</a>
-        </div>
-
-        <div class="dress-card fade-in" style="animation-delay: 0.34s">
-          <div class="dress-icon">
-            <svg
-              viewBox="0 0 32 32"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <!-- Varita Mágica HP -->
-              <line x1="5" y1="27" x2="23" y2="9" stroke-width="2" />
-              <circle cx="24" cy="8" r="2.5" />
-              <line x1="6" y1="26" x2="8" y2="24" stroke-width="1.5" />
-              <!-- Lumos effect -->
-              <path
-                d="M27 4l.6 1.8 1.8.6-1.8.6-.6 1.8-.6-1.8-1.8-.6 1.8-.6z"
-                fill="currentColor"
-                stroke="none"
-                opacity="0.7"
-              />
-              <path
-                d="M28 12l.4 1.2 1.2.4-1.2.4-.4 1.2-.4-1.2-1.2-.4 1.2-.4z"
-                fill="currentColor"
-                stroke="none"
-                opacity="0.5"
-              />
-              <path
-                d="M11 16l.3.9.9.3-.9.3-.3.9-.3-.9-.9-.3.9-.3z"
-                fill="currentColor"
-                stroke="none"
-                opacity="0.4"
-              />
-            </svg>
-          </div>
-          <h3 class="dress-title">Toque Mágico</h3>
-          <div class="dress-divider"></div>
-          <p class="dress-description">
-            Puedes añadir un detalle inspirado en la temática:<br /><br />
-            🪄 Accesorios dorados o vintage<br />
-            📚 Terciopelo, satín o telas con carácter<br />
-            🕯️ Detalles elegantes con atmósfera mágica<br /><br />
-            <em>No es disfraz — es elegancia con un guiño a Hogwarts</em>
-          </p>
         </div>
       </div>
 
-      <!-- Notas -->
-      <div class="dress-notes">
-        <div class="note-box">
-          <span class="note-icon">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              width="28"
-              height="28"
-            >
-              <path d="M10.3 3.5L2 20h20L13.7 3.5a2 2 0 0 0-3.4 0z" />
-              <line x1="12" y1="10" x2="12" y2="14" />
-              <circle
-                cx="12"
-                cy="17"
-                r="0.8"
-                fill="currentColor"
-                stroke="none"
-              />
-            </svg>
-          </span>
-          <div>
-            <h4 class="note-title">Importante</h4>
+      <div class="notes-grid">
+        <div class="note-box fade-in">
+          <div class="card-icon floating-icon small">
+             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3">
+                <path d="M16 4L9 28h14L16 4z" />
+                <path d="M12 12h8" opacity="0.5"/>
+             </svg>
+          </div>
+          <div class="note-content">
+            <h3 class="note-title">Damas</h3>
             <p class="note-text">
-              Por favor evita el color blanco y tonos muy claros, reservados
-              para la novia.
+              Solicitamos <strong>vestido midi o largo de gala</strong>. Siéntanse libres de elegir texturas y cortes que las hagan sentir mágicas, respetando la formalidad de la noche.
             </p>
           </div>
         </div>
-        <div class="note-box">
-          <span class="note-icon">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              width="28"
-              height="28"
-            >
-              <!-- Zapato de vestir -->
-              <path
-                d="M2 17 Q6 10 12 12 Q17 13 20 10 Q22 8 22 10 Q22 14 18 16 Q14 18 8 18 Q4 18 2 17z"
-              />
-              <path d="M2 17 Q2 19 8 19 Q14 19 18 17" />
-              <path d="M12 12 Q11 15 10 17" stroke-width="0.8" opacity="0.4" />
-              <!-- Tacón -->
-              <path d="M18 16 Q20 16 20 18 Q18 18 16 17" />
-            </svg>
-          </span>
-          <div>
-            <h4 class="note-title">Calzado</h4>
+
+        <div class="note-box fade-in">
+          <div class="card-icon floating-icon small">
+             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3">
+                <path d="M10 8h12v18H10z" />
+                <path d="M10 8l6 4 6-4" />
+             </svg>
+          </div>
+          <div class="note-content">
+            <h3 class="note-title">Caballeros</h3>
             <p class="note-text">
-              Habrá mucho baile. Puedes usar tacones cómodos, flats elegantes o
-              <strong>tenis blancos, negros o minimalistas</strong>. La
-              comodidad también puede ser elegante ✨
+              Los esperamos con <strong>traje de 2 o 3 piezas oscuro</strong> (Negro, Azul Medianoche o Gris Carbón). 
+              Si desean mostrar su lealtad, pueden portar los colores de su casa en la corbata, pañuelo o gemelos.
             </p>
           </div>
         </div>
+
+        <div class="note-box fade-in">
+          <div class="card-icon floating-icon small">
+             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3">
+                <circle cx="16" cy="16" r="6" />
+                <path d="M16 6v2M16 24v2M26 16h-2M8 16h-2" />
+             </svg>
+          </div>
+          <div class="note-content">
+            <h3 class="note-title">Comodidad y Clima</h3>
+            <p class="note-text">
+              Octubre es fresco; un abrigo será su mejor aliado. 
+              Para el baile, <strong>pueden cambiar sus zapatos por tennis</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-container fade-in">
+        <h3 class="faq-section-title-mini">Dudas del Gran Comedor</h3>
+
+        <div class="faq-accordion-list">
+          <div 
+            v-for="(item, index) in faqs" 
+            :key="index" 
+            class="faq-item-compact"
+            :class="{ active: activeFaq === index }"
+          >
+            <button class="faq-button-mini" @click="toggleFaq(index)">
+              <span class="faq-question-text-mini">{{ item.q }}</span>
+              <span class="faq-chevron-mini">{{ activeFaq === index ? '−' : '+' }}</span>
+            </button>
+            
+            <div class="faq-panel-mini" :style="faqStyle(index)">
+              <p class="faq-answer-text-mini" v-html="item.a"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="no-white-banner fade-in">
+        <span class="magic-star">✦</span>
+        <p>Rogamos dejar el color <strong>blanco y marfil</strong> para el uso exclusivo de la novia.</p>
+        <span class="magic-star">✦</span>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-export default { name: "DressCode" };
+export default {
+  name: "DressCode",
+  data() {
+    return {
+      activeFaq: null,
+      paleta: [
+        { name: "Negro", hex: "#0b0b0f" },
+        { name: "Vino", hex: "#4b0f1a" },
+        { name: "Esmeralda", hex: "#0f3d2e" },
+        { name: "Azul", hex: "#0e1a2b" },
+        { name: "Dorado", hex: "#c9a24d" },
+        { name: "Plata", hex: "#8b8e98" },
+      ],
+      faqs: [
+        { q: "¿Puedo llevar disfraz o túnica?", a: "Rogamos <strong>no asistir con disfraces o túnicas</strong>. Buscamos una estética de Gala Nocturna." },
+        { q: "¿Se permiten trajes claros?", a: "Solicitamos tonos oscuros (Gris Carbón, Azul Marino o Negro) para mantener la elegancia." },
+        { q: "¿El vestido debe ser largo?", a: "No, solicitamos vestido midi o largo para todas nuestras invitadas." },
+        { q: "¿Colores prohibidos?", a: "Solo el blanco y marfil. Cualquier otro color es bienvenido." },
+        { q: "¿Accesorios temáticos?", a: "¡Sí! Joyería o broches de casa son detalles perfectos." },
+        { q: "¿Y los niños?", a: "Agradecemos que también asistan con vestimenta formal." }
+      ]
+    };
+  },
+  methods: {
+    toggleFaq(index) {
+      this.activeFaq = this.activeFaq === index ? null : index;
+    },
+    faqStyle(index) {
+      const isOpened = this.activeFaq === index;
+      return {
+        maxHeight: isOpened ? '100px' : '0',
+        opacity: isOpened ? '1' : '0',
+        paddingBottom: isOpened ? '15px' : '0'
+      };
+    }
+  }
+};
 </script>
 
 <style scoped>
-.dress-code-section {
-  background: linear-gradient(
-    135deg,
-    rgba(26, 47, 95, 0.35) 0%,
-    rgba(14, 26, 64, 0.35) 100%
-  );
+/* Mantengo todos tus estilos de paleta, intro y notas intactos */
+.dress-code-section { background: rgba(10, 14, 31, 0.2); }
+.palette-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; margin: 30px 0 50px; }
+.swatch-wrapper { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.swatch { position: relative; overflow: hidden; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--hp-gold); cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.swatch:hover { transform: scale(1.15) rotate(10deg); box-shadow: 0 0 20px var(--hp-gold); }
+.swatch-glint { position: absolute; top: -100%; left: -100%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 55%, transparent); transition: all 0.6s; }
+.swatch:hover .swatch-glint { top: 100%; left: 100%; }
+.swatch-label { font-family: var(--font-display); font-size: 0.7rem; color: var(--hp-silver); letter-spacing: 1px; text-transform: uppercase; }
+.floating-icon.small { width: 35px; height: 35px; color: var(--hp-gold); flex-shrink: 0; animation: float 4s ease-in-out infinite; }
+.notes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+.note-box { background: rgba(10, 14, 31, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(201, 162, 77, 0.15); border-radius: 4px; padding: 30px; display: flex; gap: 15px; min-height: 120px; }
+.note-title { font-family: var(--font-display); color: var(--hp-gold); font-size: 1rem; letter-spacing: 1.5px; margin-bottom: 5px; }
+.note-text { font-family: var(--font-body); font-size: 0.9rem; color: var(--hp-silver); line-height: 1.4; }
+.note-text strong { color: var(--hp-gold); }
+.dress-intro { text-align: center; font-family: var(--font-body); color: var(--hp-silver); margin-bottom: 40px; line-height: 1.6; font-size: 1.1rem; }
+.palette-subtitle { font-family: var(--font-display); color: var(--hp-gold); text-align: center; font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 25px; display: flex; align-items: center; justify-content: center; gap: 15px; }
+.palette-subtitle::before, .palette-subtitle::after { content: ""; width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--hp-gold)); }
+.palette-subtitle::after { background: linear-gradient(-90deg, transparent, var(--hp-gold)); }
+
+/* --- FAQ REDUCIDO --- */
+.faq-container {
+  margin-top: 50px;
+  max-width: 550px; /* Más estrecho */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Paleta */
-.color-palette {
-  text-align: center;
-  margin-bottom: 36px;
-}
-
-.palette-title {
+.faq-section-title-mini {
   font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--hp-silver);
-  margin-bottom: 16px;
+  color: var(--hp-gold);
+  text-align: center;
+  font-size: 0.95rem; /* Título más pequeño */
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  opacity: 0.8;
 }
 
-.palette-grid {
+.faq-button-mini {
+  width: 100%;
+  background: none;
+  border: none;
   display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5px; /* Menos relleno */
+  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid rgba(201, 162, 77, 0.1);
 }
 
-.swatch {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-  cursor: default;
-}
-
-.swatch:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 18px rgba(201, 162, 77, 0.25);
-}
-
-.palette-caption {
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  color: var(--hp-silver);
-  opacity: 0.75;
+.faq-question-text-mini {
+  font-family: var(--font-display);
+  color: var(--hp-silver); /* Un poco más discreto */
+  font-size: 0.75rem; /* Texto pequeño */
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* Intro */
-.intro-text {
-  font-family: var(--font-body);
-  font-size: 1.2rem;
-  color: var(--hp-silver);
-  line-height: 1.9;
-  font-style: italic;
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 56px;
-}
-
-.intro-text strong {
-  color: var(--star-white);
-  font-style: normal;
-}
-
-/* Grid */
-.dress-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
-  max-width: 1100px;
-  margin: 0 auto 56px;
-}
-
-.dress-card {
-  border: 1px solid rgba(201, 162, 77, 0.2);
-  border-radius: 2px;
-  padding: 32px 26px;
-  backdrop-filter: blur(8px);
-  transition:
-    border-color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.dress-card:hover {
-  border-color: var(--hp-gold);
-  transform: translateY(-6px);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
-}
-
-.dress-icon {
-  width: 54px;
-  height: 54px;
-  margin-bottom: 12px;
+.faq-chevron-mini {
   color: var(--hp-gold);
-  animation: float 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 6px rgba(201, 162, 77, 0.25));
-}
-
-.dress-icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-.dress-title {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  color: var(--hp-gold);
-  letter-spacing: 2px;
-}
-
-.dress-divider {
-  width: 40px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--hp-gold), transparent);
-  margin: 14px 0;
-}
-
-.dress-description {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: var(--hp-silver);
-  line-height: 1.8;
-}
-
-.dress-description strong {
-  color: var(--star-white);
-}
-.dress-description em {
-  color: var(--hp-gold);
-  opacity: 0.85;
-}
-
-/* Notas */
-.dress-notes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.note-box {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  border: 1px solid rgba(201, 162, 77, 0.18);
-  border-radius: 2px;
-  padding: 22px 20px;
-  backdrop-filter: blur(6px);
-}
-
-.note-icon {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
-  color: var(--hp-gold);
-  opacity: 0.8;
-  display: flex;
-  align-items: flex-start;
-  padding-top: 2px;
-}
-
-.note-title {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  color: var(--hp-gold);
-  letter-spacing: 2px;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-}
-
-.note-text {
-  font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--hp-silver);
-  line-height: 1.7;
 }
 
-.note-text strong {
-  color: var(--star-white);
+.faq-panel-mini {
+  overflow: hidden;
+  transition: all 0.3s ease;
+  padding: 0 5px;
 }
+
+.faq-answer-text-mini {
+  font-family: var(--font-body);
+  color: var(--hp-silver);
+  font-size: 0.8rem; /* Respuesta más pequeña */
+  line-height: 1.5;
+  font-style: italic;
+  padding-top: 10px;
+}
+
+/* Banner de no blanco */
+.no-white-banner {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  border-top: 1px solid rgba(201, 162, 77, 0.2);
+  color: var(--hp-silver);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.no-white-banner strong { color: var(--hp-gold); }
+.magic-star { color: var(--hp-gold); }
 
 @media (max-width: 768px) {
-  .dress-grid {
-    grid-template-columns: 1fr;
-  }
-  .dress-notes {
-    grid-template-columns: 1fr;
-  }
-}
-
-.magic-link {
-  display: inline-block;
-  margin-top: 12px;
-  color: var(--hp-gold); /* El color dorado que ya usas en el Hero */
-  text-decoration: none;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  border-bottom: 1px solid rgba(201, 162, 77, 0.3);
-  transition: all 0.3s ease;
-}
-
-.magic-link:hover {
-  border-bottom-color: var(--hp-gold);
-  text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
-  transform: translateX(5px);
+  .faq-container { padding: 0 20px; }
 }
 </style>

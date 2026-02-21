@@ -3,225 +3,108 @@
     <div class="footer-glow" aria-hidden="true"></div>
 
     <div class="footer-content">
-
-      <!-- Separador superior -->
-      <!-- <div class="footer-top-deco" aria-hidden="true">
-        <span class="deco-star">✦</span>
-        <span class="deco-line"></span>
-        <span class="deco-eagle">🦅</span>
-        <span class="deco-line"></span>
-        <span class="deco-star">✦</span>
-      </div> -->
-
-      <!-- Iniciales y nombre -->
       <div class="footer-main">
-        <!-- <div class="couple-initials">
-          <span class="initial">C</span>
-          <span class="ampersand">&</span>
-          <span class="initial">A</span>
-        </div> -->
-
-        <h3 class="footer-title">Cecilia & Ángel</h3>
+        <h3 class="footer-title">C <span class="ampersand">&</span> A</h3>
         <p class="footer-date">30 · 10 · 2026</p>
-        <p class="footer-tagline">Donde el amor y la magia se encuentran</p>
-
-        <div class="wedding-hashtag">
-          <span class="hashtag-symbol">#</span>
-          <span class="hashtag-text">BodaCecilia&Angel</span>
+        
+        <div class="wedding-hashtag-minimal">
+          <span class="hashtag-text">#BodaCeciliaYAngel</span>
         </div>
       </div>
 
-      <!-- Créditos -->
       <div class="footer-bottom">
-        <p class="copyright">Hecho con 💙 y magia</p>
-        <p class="credits">© 2026 Cecilia & Ángel · Todos los derechos reservados</p>
+        <p class="copyright">Hecho con magia y amor</p>
+        <div class="bottom-line"></div>
+        <p class="signature">2026 — El Gran Comedor</p>
       </div>
-
-      <!-- Separador inferior -->
-      <div class="footer-bottom-deco" aria-hidden="true">
-        <span class="wand-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-            <line x1="5" y1="21" x2="18" y2="8" stroke-width="2"/>
-            <circle cx="19" cy="7" r="2"/>
-            <line x1="6" y1="20" x2="7.5" y2="18.5" stroke-width="1.5"/>
-            <path d="M21 3l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5-1.5-.5 1.5-.5z" fill="currentColor" stroke="none" opacity="0.7"/>
-          </svg>
-        </span>
-        <span class="deco-sparkles">✨ ✨ ✨</span>
-        <span class="wand-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-            <line x1="5" y1="21" x2="18" y2="8" stroke-width="2"/>
-            <circle cx="19" cy="7" r="2"/>
-            <line x1="6" y1="20" x2="7.5" y2="18.5" stroke-width="1.5"/>
-            <path d="M21 3l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5-1.5-.5 1.5-.5z" fill="currentColor" stroke="none" opacity="0.7"/>
-          </svg>
-        </span>
-      </div>
-
     </div>
   </footer>
 </template>
 
-<script>
-export default { name: 'Footer' }
-</script>
-
 <style scoped>
 .footer {
   position: relative;
-  overflow: hidden;
-  border-top: 1px solid rgba(201, 162, 77, 0.25);
-  padding: 72px 24px 40px;
+  padding: 40px 0 20px; /* Reducimos padding */
+  background: var(--bg-dark); /* Asegúrate que combine con tu fondo */
   text-align: center;
+  overflow: hidden;
 }
 
 .footer-glow {
   position: absolute;
-  top: -60%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 70%;
-  height: 200%;
-  background: radial-gradient(ellipse at center, rgba(201, 162, 77, 0.06) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(201, 162, 77, 0.05) 0%, transparent 70%);
   pointer-events: none;
-}
-
-.footer-content {
-  max-width: 700px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* Decoraciones */
-.footer-top-deco,
-.footer-bottom-deco {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin: 0 auto 40px;
-  color: var(--hp-gold);
-  opacity: 0.6;
-}
-
-.footer-bottom-deco { margin: 40px auto 0; }
-
-.deco-line {
-  width: 80px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--hp-gold), transparent);
-  opacity: 0.5;
-}
-
-.deco-star    { animation: sparkle 2.5s ease-in-out infinite; font-size: 0.9rem; }
-.deco-eagle   { font-size: 1.6rem; animation: float 4s ease-in-out infinite; }
-.deco-sparkles { letter-spacing: 4px; animation: sparkle 2s ease-in-out infinite; }
-
-.footer-bottom-deco .wand-icon {
-  display: inline-flex;
-  align-items: center;
-  color: var(--hp-gold);
-}
-
-/* Iniciales */
-.footer-main { margin: 0 auto 40px; }
-
-.couple-initials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.initial {
-  font-family: var(--font-display);
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--ravenclaw-bronze);
-  text-shadow: 0 0 24px rgba(148, 107, 45, 0.35);
-}
-
-.ampersand {
-  font-family: var(--font-display);
-  font-size: 2.8rem;
-  color: var(--hp-gold);
-  animation: float 4s ease-in-out infinite;
-  font-style: italic;
 }
 
 .footer-title {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.5rem; /* Más pequeño */
   color: var(--star-white);
-  letter-spacing: 4px;
-  margin-bottom: 8px;
+  letter-spacing: 5px;
+  margin-bottom: 5px;
+}
+
+.ampersand {
+  color: var(--hp-gold);
+  font-family: serif; /* Un toque clásico */
+  font-style: italic;
 }
 
 .footer-date {
   font-family: var(--font-display);
-  font-size: 1.3rem;
-  color: var(--ravenclaw-bronze);
-  letter-spacing: 6px;
-  margin-bottom: 8px;
-}
-
-.footer-tagline {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   color: var(--hp-silver);
-  font-style: italic;
-  margin-bottom: 24px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  opacity: 0.8;
 }
 
-/* Hashtag */
-.wedding-hashtag {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  border: 1px solid rgba(201, 162, 77, 0.35);
-  padding: 10px 28px;
-}
-
-.hashtag-symbol {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
+.wedding-hashtag-minimal {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
   color: var(--hp-gold);
+  letter-spacing: 1px;
+  opacity: 0.7;
+  border-top: 1px solid rgba(201, 162, 77, 0.2);
+  padding-top: 10px;
 }
 
-.hashtag-text {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--star-white);
-  letter-spacing: 2px;
-}
-
-/* Créditos */
 .footer-bottom {
-  padding-top: 28px;
-  border-top: 1px solid rgba(201, 162, 77, 0.15);
-  margin-bottom: 0;
+  margin-top: 30px;
 }
 
 .copyright {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.7rem;
   color: var(--hp-silver);
-  margin-bottom: 4px;
+  opacity: 0.5;
+  margin-bottom: 8px;
 }
 
-.credits {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  color: var(--hp-silver);
-  opacity: 0.55;
+.bottom-line {
+  width: 30px;
+  height: 1px;
+  background: var(--hp-gold);
+  margin: 0 auto 8px;
+  opacity: 0.3;
 }
 
-@media (max-width: 600px) {
-  .footer { padding: 56px 16px 32px; }
-  .initial { font-size: 2.8rem; }
-  .footer-title { font-size: 1.6rem; }
-  .deco-line { width: 40px; }
+.signature {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  color: var(--hp-gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .footer { padding: 30px 0 15px; }
 }
 </style>

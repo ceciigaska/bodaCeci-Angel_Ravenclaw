@@ -93,17 +93,32 @@ export default {
   name: "HeroSection",
   methods: {
     featherStyle(n) {
-      const positions = [8, 18, 30, 42, 55, 68, 78, 90];
-      const delays = [0, 2, 4, 1, 3, 5, 1.5, 3.5];
-      return {
-        left: positions[n - 1] + "%",
-        animationDelay: delays[n - 1] + "s",
-        animationDuration: 12 + n + "s",
-        fontSize: 0.6 + Math.random() * 0.8 + "rem",
-        opacity: 0.08 + (n % 3) * 0.04,
-      };
+    return {
+      left: Math.random() * 100 + '%',
+      fontSize: (Math.random() * 10 + 10) + 'px',
+      animationDuration: (Math.random() * 5 + 5) + 's', // Entre 5 y 10 segundos
+      animationDelay: (Math.random() * 5) + 's',       // Retraso para que no salgan todas juntas
+    };
     },
   },
+  mounted() {
+  // 1. Limpia el hash de la URL sin recargar la página
+  // Esto quita el "#dress-code" de la barra de direcciones
+  if (window.location.hash) {
+    history.replaceState(null, null, window.location.pathname);
+  }
+
+  // 2. Fuerza el scroll al punto 0,0 (arriba a la izquierda)
+  window.scrollTo(0, 0);
+
+  // 3. Por si el navegador se pone terco, un pequeño refuerzo:
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant' // Queremos que sea inmediato, no un scroll suave
+    });
+  }, 10);
+}
 };
 </script>
 
@@ -111,27 +126,30 @@ export default {
 .hero-section {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding-top: 80px; /* Debe coincidir con la altura del nav para no empujar de más */
   text-align: center;
-  position: relative;
-  padding: 120px 24px 80px;
-  overflow: hidden;
 }
 
 /* Plumas de fondo */
 .feathers {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .feather {
   position: absolute;
   color: var(--hp-gold);
-  animation: featherDrift linear infinite;
-  top: -10%;
+  opacity: 0.3;
+  /* Aplicamos la animación de caída */
+  animation: magic-fall linear infinite;
 }
 
 @keyframes featherDrift {
@@ -166,13 +184,17 @@ export default {
 
 .couple-names {
   font-family: var(--font-display);
-  font-size: 5rem; /* Ajusta según prefieras */
-  color: var(--hp-gold); /* O var(--hp-gold) para que resalte */
-  text-shadow: 0 0 15px rgba(212, 175, 55, 0.5); /* Brillo mágico */
-  margin: 20px 0;
+  color: var(--hp-gold);
+  
+  /* Esto es vital para móviles */
   display: block;
-  z-index: 10;
-  background: transparent !important; /* Evita el recuadro azul que mencionabas */
+  width: 100%;
+  white-space: nowrap; /* Evita el salto de línea */
+  text-align: center;
+  
+  /* Tamaño fluido: en pantallas grandes es 5rem, en pequeñas se encoge */
+  font-size: clamp(1.8rem, 8vw, 5rem) !important; 
+  line-height: 1.2;
 }
 
 .ampersand {
@@ -296,7 +318,9 @@ export default {
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 100px 16px 80px;
+    padding-top: 60px; /* Reducimos el espacio superior en móvil */
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .house-banner {
     flex-direction: column;
@@ -306,27 +330,20 @@ export default {
     text-align: center;
   }
   .couple-names {
-    font-size: 3rem !important; /* Reduce el tamaño en móviles */
-    line-height: 1.2;
+    font-size: 2.8rem; /* Aumentamos el tamaño de los nombres */
+    line-height: 1.1;
+    margin: 15px 0;
   }
   .wedding-date {
-    font-size: 1.1rem;
-    letter-spacing: 3px; /* Reduce el espaciado para que no se corte */
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  .subtitle {
+    font-size: 1rem; /* Un poco más legible */
+    margin-bottom: 10px;
+    letter-spacing: 2px;
   }
 }
-
-/*.spotify-mini-wrapper {
-/*  max-width: 280px; /* Tamaño pequeño */
-/*  margin: 0 auto 20px; /* Centrado y con poco margen */
-/*  opacity: 0.6; /* Se vuelve sutil */
-/*  transition: opacity 0.3s ease;
-/*  border-radius: 12px;
-/*  overflow: hidden;
-/*}
-/*
-/*.spotify-mini-wrapper:hover {
-/*  opacity: 1; /* Solo resalta si pasan el mouse */
-/*}*/
 
 .spotify-floating-player {
   position: fixed;
@@ -335,12 +352,20 @@ export default {
   width: 300px;
   z-index: 1000;
   border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  background: #000; /* Fondo negro para que no brille de más */
+  border: 1px solid var(--hp-gold);
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(201, 162, 77, 0.3); /* Dorado Ravenclaw */
-  opacity: 0.5; /* Muy sutil por defecto */
-  transition: all 0.4s ease;
-  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease;
+}
+
+/* En celulares pequeños lo ocultamos o lo hacemos miniatura */
+@media (max-width: 480px) {
+  .spotify-floating-player {
+    width: 80px;
+    height: 80px;
+    right: 10px;
+  }
 }
 
 .spotify-floating-player:hover {
@@ -356,6 +381,30 @@ export default {
     bottom: 10px;
     right: 10px;
     opacity: 0.8;
+  }
+}
+
+
+
+@keyframes magic-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  50% {
+    /* Movimiento de vaivén hacia la derecha */
+    transform: translateY(50vh) translateX(20px) rotate(180deg);
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    /* Cae hasta el fondo con vaivén hacia la izquierda */
+    transform: translateY(100vh) translateX(-20px) rotate(360deg);
+    opacity: 0;
   }
 }
 </style>
